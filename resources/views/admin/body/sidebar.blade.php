@@ -115,64 +115,6 @@ $route = Route::current()->getName();
             <li class="{{ $route == 'admin.message' ? 'active' : '' }}"><a href="{{ route('admin.message') }}"><i
                         class="ti-more"></i>{{ trans('admin/sidebar.messages') }}</a></li>
 
-            <li class="header nav-small-cap">{{ trans('admin/sidebar.blog') }}</li>
-
-            <li class="treeview {{ $prefix == '/blog' ? 'active' : '' }}  ">
-                <a href="#">
-                    <i class="ti-pencil-alt"></i>
-                    <span>{{ trans('admin/sidebar.blog-management') }}</span>
-                    <span class="pull-left-container">
-                        <i class="fa fa-angle-left pull-left"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li class="{{ $route == 'blog.category' ? 'active' : '' }}"><a
-                            href="{{ route('blog.category') }}"><i
-                                class="ti-more"></i>{{ trans('admin/sidebar.blog-categories') }}</a></li>
-
-                    <li class="{{ $route == 'list.post' ? 'active' : '' }}"><a href="{{ route('list.post') }}"><i
-                                class="ti-more"></i>{{ trans('admin/sidebar.posts-list') }}</a></li>
-
-                    <li class="{{ $route == 'add.post' ? 'active' : '' }}"><a href="{{ route('add.post') }}"><i
-                                class="ti-more"></i>{{ trans('admin/sidebar.add-post') }}</a></li>
-
-                </ul>
-            </li>
-
-            <li class="header nav-small-cap">{{ trans('admin/sidebar.personal-site') }}</li>
-
-            <li class="treeview ">
-                <a href="#">
-                    <i class="ti-layout-media-overlay"></i>
-                    <span>{{ trans('admin/sidebar.personal-site-management') }}</span>
-                    <span class="pull-left-container">
-                        <i class="fa fa-angle-left pull-left"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-
-                    <li class="{{ $route == 'manage-slider' ? 'active' : '' }}"><a
-                            href="{{ route('manage-slider') }}"><i
-                                class="ti-more"></i>{{ trans('admin/sidebar.slider-management') }}</a></li>
-
-                    <li class="{{ $route == 'edit.about' ? 'active' : '' }}"><a
-                            href="{{ route('edit.about') }}"><i class="ti-more"></i>{{ trans('admin/sidebar.about-site') }}</a></li>
-
-                    <li class="{{ $route == 'all.portfolio' ? 'active' : '' }}"><a
-                            href="{{ route('all.portfolio') }}"><i class="ti-more"></i>{{ trans('admin/sidebar.portfolio') }}</a></li>
-
-                    <li class="{{ $route == 'all.service' ? 'active' : '' }}"><a
-                            href="{{ route('all.service') }}"><i class="ti-more"></i>{{ trans('admin/sidebar.services') }}</a></li>
-
-                    <li class="{{ $route == 'all.testmonial' ? 'active' : '' }}"><a
-                            href="{{ route('all.testmonial') }}"><i class="ti-more"></i>{{ trans('admin/sidebar.testmonials') }}</a></li>
-
-                    <li class="{{ $route == 'all.client' ? 'active' : '' }}"><a
-                            href="{{ route('all.client') }}"><i class="ti-more"></i>{{ trans('admin/sidebar.clients') }}</a></li>
-
-                </ul>
-            </li>
-
             <li class="header nav-small-cap">{{ trans('admin/sidebar.store') }}</li>
 
             <li class="treeview ">

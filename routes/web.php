@@ -31,24 +31,7 @@ use App\Http\Controllers\Store\ReportController;
 use App\Http\Controllers\Store\BrandController;
 // store controllers 
 
-// portfolio controllers 
-use App\Http\Controllers\Portfolio\AboutController;
-use App\Http\Controllers\Portfolio\PortfolioController;
-use App\Http\Controllers\Portfolio\ServiceController;
-use App\Http\Controllers\Portfolio\TestmonialController;
-use App\Http\Controllers\Portfolio\SliderController;
-use App\Http\Controllers\Portfolio\ClientsController;
-// portfolio controller 
-
-// blog controllers 
-use App\Http\Controllers\Blog\BlogManagementController;
-// blog controllers
-
 use App\Http\Controllers\Frontend\IndexController;
-
-// Main Site controllers
-use App\Http\Controllers\Frontend\ContactsController;
-// Main Site controllers
 
 // Store Site controllers
 use App\Http\Controllers\Frontend\CartController;
@@ -61,10 +44,6 @@ use App\Http\Controllers\User\CashController;
 use App\Http\Controllers\User\ReviewController;
 use App\Http\Controllers\User\StripeController;
 // Store Site controllers
-
-// Blog controllers
-use App\Http\Controllers\Frontend\BlogController;
-// Blog controllers
 
 /*
 |--------------------------------------------------------------------------
@@ -395,116 +374,6 @@ Route::middleware('admin')->group(function () {
 
         // store Routes ###########################################################
 
-        // blog Routes ############################################################
-
-        // Blog Routes 
-        Route::prefix('blog')->group(function () {
-
-            Route::get('/category', [BlogManagementController::class, 'BlogCategory'])->name('blog.category');
-
-            Route::post('/store', [BlogManagementController::class, 'BlogCategoryStore'])->name('blogcategory.store');
-
-            Route::get('/category/edit/{id}', [BlogManagementController::class, 'BlogCategoryEdit'])->name('blog.category.edit');
-
-            Route::post('/update', [BlogManagementController::class, 'BlogCategoryUpdate'])->name('blogcategory.update');
-
-            Route::get('/delete/{id}', [BlogManagementController::class, 'BlogCategoryDelete'])->name('blogcategory.delete');
-
-            // Admin View Blog Post Routes 
-
-            Route::get('/list/post', [BlogManagementController::class, 'ListBlogPost'])->name('list.post');
-
-            Route::get('/add/post', [BlogManagementController::class, 'AddBlogPost'])->name('add.post');
-
-            Route::post('/post/store', [BlogManagementController::class, 'BlogPostStore'])->name('post-store');
-
-            Route::get('/post/edit/{id}', [BlogManagementController::class, 'BlogPostEdit'])->name('post-edit');
-            
-            Route::post('/post/update', [BlogManagementController::class, 'BlogPostUpdate'])->name('post-update');
-
-            Route::get('/post/delete/{id}', [BlogManagementController::class, 'BlogPostDelete'])->name('post-delete');
-        });
-        // Blog Routes
-
-        // blog Routes ############################################################
-
-        // Portfolio Routes #######################################################
-
-        // portfolio Routes
-        Route::prefix('portfolio')->group(function () {
-            Route::get('/portfolio/all', [PortfolioController::class, 'AllPortfolio'])->name('all.portfolio');
-            Route::post('/portfolio/add', [PortfolioController::class, 'StorePortfolio'])->name('store.portfolio');
-            Route::get('/portfolio/edit/{id}', [PortfolioController::class, 'Edit'])->name('edit.portfolio');
-            Route::post('/portfolio/update/{id}', [PortfolioController::class, 'Update'])->name('update.portfolio');
-            Route::get('/portfolio/delete/{id}', [PortfolioController::class, 'Delete'])->name('delete.portfolio');
-        });
-        // portfolio Routes 
-
-        // services Routes
-        Route::prefix('services')->group(function () {
-
-            Route::get('/service/all', [ServiceController::class, 'AllService'])->name('all.service');
-            Route::post('/service/add', [ServiceController::class, 'StoreService'])->name('store.service');
-            Route::get('/service/edit/{id}', [ServiceController::class, 'EditService'])->name('edit.service');
-            Route::post('/service/update/{id}', [ServiceController::class, 'Update'])->name('update.service');
-            Route::get('/service/delete/{id}', [ServiceController::class, 'Delete'])->name('delete.service');
-        });
-        // services Routes
-
-        // testmonial Routes
-        Route::prefix('testmonials')->group(function () {
-
-            Route::get('/testmonial/all', [TestmonialController::class, 'AllTestmonial'])->name('all.testmonial');
-            Route::post('/testmonial/add', [TestmonialController::class, 'StoreTestmonial'])->name('store.testmonial');
-            Route::get('/testmonial/edit/{id}', [TestmonialController::class, 'Edit'])->name('edit.testmonial');
-            Route::post('/testmonial/update/{id}', [TestmonialController::class, 'Update'])->name('update.testmonial');
-            Route::get('/testmonial/delete/{id}', [TestmonialController::class, 'Delete'])->name('delete.testmonial');
-        });
-        // testmonial Routes
-
-        // About Routes
-        Route::prefix('about')->group(function () {
-            Route::get('/about/edit/', [AboutController::class, 'EditAbout'])->name('edit.about');
-            Route::post('/update/homeabout/', [AboutController::class, 'UpdateAbout'])->name('update.about');
-        });
-        // About Routes
-
-        // clients routes 
-        Route::prefix('clients')->group(function () {
-
-            Route::get('/view', [ClientsController::class, 'ClientView'])->name('all.client');
-
-            Route::post('/store', [ClientsController::class, 'ClientStore'])->name('client.store');
-
-            Route::get('/edit/{id}', [ClientsController::class, 'ClientEdit'])->name('client.edit');
-
-            Route::post('/update', [ClientsController::class, 'ClientUpdate'])->name('client.update');
-
-            Route::get('/delete/{id}', [ClientsController::class, 'ClientDelete'])->name('client.delete');
-        });
-        // clients routes
-
-        // Slider Routes 
-        Route::prefix('slider')->group(function () {
-
-            Route::get('/view', [SliderController::class, 'SliderView'])->name('manage-slider');
-
-            Route::post('/store', [SliderController::class, 'SliderStore'])->name('slider.store');
-
-            Route::get('/edit/{id}', [SliderController::class, 'SliderEdit'])->name('slider.edit');
-
-            Route::post('/update', [SliderController::class, 'SliderUpdate'])->name('slider.update');
-
-            Route::get('/delete/{id}', [SliderController::class, 'SliderDelete'])->name('slider.delete');
-
-            Route::get('/inactive/{id}', [SliderController::class, 'SliderInactive'])->name('slider.inactive');
-
-            Route::get('/active/{id}', [SliderController::class, 'SliderActive'])->name('slider.active');
-        });
-        // Slider Routes
-
-        // Portfolio Routes #######################################################
-
     });
 });
 // end admin middleware
@@ -538,29 +407,11 @@ Route::post('/contact/form', [ContactsController::class, 'ContactForm'])->name('
 
 // Main Site Routes #########################################
 
-// Portfolio Site Routes #########################################
-
 Route::get('/', [IndexController::class, 'Home'])->name('home');
-
-Route::get('/write-image', [IndexController::class, 'writeOnImagePage'])->name('write.image');
-
-Route::post('/write-on-image', [IndexController::class, 'textOnImage'])->name('write.on.image');
-
-Route::get('/download-image', [IndexController::class, 'downloadImage'])->name('download.image');
-
-// Portfolio Site Routes #########################################
-
-// Blog Site Routes ##############################################
-
-Route::get('/blog', [BlogController::class, 'BlogView'])->name('blog.view');
-Route::get('/blog/post/{id}', [BlogController::class, 'BlogPost'])->name('blog.post');
-Route::get('/blog/category/post/{category_id}', [BlogController::class, 'HomeBlogCatPost']);
-
-// Blog Site Routes ##############################################
 
 // Store Site Routes #############################################
 
-Route::get('/shop', [StoreController::class, 'ShopView'])->name('shop.view');
+Route::get('/shop/{id}', [StoreController::class, 'ShopView'])->name('shop.view');
 
 Route::get('/product/details/{id}/{slug}', [StoreController::class, 'ProductDetails'])->name('product.details');
 

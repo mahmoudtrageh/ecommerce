@@ -19,6 +19,8 @@
     @if (session()->get('lang') == 'ar')
     <link rel="stylesheet" href="{{ asset('home/assets/style.css') }}" type="text/css" />
     <link rel="stylesheet" href="{{ asset('home/assets/style-rtl.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('home/assets/demos/shop/shop.css') }}" type="text/css" />
+
     <style>
          .header-icons {
             margin-right: auto;
@@ -117,6 +119,45 @@
         body{
             overflow-x: hidden;
         }
+
+        /* css rtl */
+		#top-account {
+			font-size: 14px;
+			font-weight: 500;
+			border-left: 1px solid #DDD;
+			border-right: 0;
+			padding: 3px 0 3px 15px;
+		}
+
+		.fslider {
+			direction: ltr;
+		}
+
+		.shop-footer-features i {
+			margin-left: 10px;
+			margin-right: 0;
+		}
+
+		/* custom */
+
+		.show-all {
+			color: #fff;
+			padding: 5px;
+			border-radius: 5px;
+			position: absolute;
+			left: 5px;
+		}
+
+		.product-slider h4 {
+			background-color: #dc3545;
+			color: #fff;
+			padding: 5px;
+			width: 100%;
+		}
+
+		.product-slider::before, .product-slider::after {
+			content: none;
+		}
     </style>
 
 <script src="https://js.stripe.com/v3/"></script>
@@ -1028,6 +1069,25 @@ function addToWishList(product_id) {
   }
 
   // end coupon
+
+$('.owl-carousel').owlCarousel({
+    rtl:true,
+    loop:true,
+    margin:10,
+    nav:false,
+    autoplay:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:5
+        }
+    }
+});
 
 </script>
 

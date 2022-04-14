@@ -11,8 +11,8 @@
             <h1 class="text-white">{{ trans('site/body.store') }}</h1>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a class="text-white"
-                        href="{{ route('home') }}">{{ trans('site/layout.home') }}</a></li>
-                <li class="breadcrumb-item text-white active" aria-current="page">{{ trans('site/body.store') }}</li>
+                        href="#">{{ trans('site/body.store') }}</a></li>
+                <li class="breadcrumb-item text-white active" aria-current="page">{{$category->category_name}}</li>
             </ol>
         </div>
 
@@ -28,18 +28,6 @@
 
                     <div class="col-lg-3">
 
-                        <div>
-                            <!-- Portfolio Filter -->
-                            <ul class="grid-filter" data-container="#shop">
-                                <li class="d-block w-100 activeFilter"><a href="#" data-filter="*">{{ trans('site/body.show-all') }}</a></li>
-                                @foreach ($categories as $category)
-                                    <li class="d-block w-100"><a href="#"
-                                            data-filter=".{{ $category->category_slug }}">{{ $category->category_name }}</a>
-                                    </li>
-                                @endforeach
-                            </ul><!-- .grid-filter end -->
-                        </div>
-
                         <div class="ml-auto mb-5 mb-md-5">
                             <input class="range_23" />
                         </div>
@@ -52,8 +40,7 @@
                         <div id="shop" class="shop row grid-container gutter-30" data-layout="fitRows">
 
                             @foreach ($products as $product)
-                                <div
-                                    class="product col-lg-3 col-md-4 col-sm-6 col-12 {{ $product->category->category_slug }}">
+                                <div class="product col-lg-3 col-md-4 col-sm-6 col-12 {{ $product->category->category_slug }}">
                                     <div class="grid-inner">
                                         <div class="product-image">
                                             <a href="#"><img src="{{ asset($product->product_thambnail) }}"

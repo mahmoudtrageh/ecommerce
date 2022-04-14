@@ -15,4 +15,9 @@ class Category extends Model
         'user_id',
     ];
 
+    public function products(){
+    	return $this->HasMany(Product::class,'id');
+    }
+
+
 }

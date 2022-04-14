@@ -9,10 +9,10 @@ use App\Models\Product;
 class StoreController extends Controller
 {
 
-    public function ShopView(){
-		$products = Product::latest()->get();
-		$categories = Category::latest()->get();
-		return view('shop.index', compact('products','categories'));
+    public function ShopView($id){
+		$products = Product::where('category_id', $id)->latest()->get();
+		$category = Category::where('id', $id)->first();
+		return view('shop.index', compact('products', 'category'));
 	}
 
       /// Product View With Ajax

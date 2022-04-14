@@ -37,7 +37,7 @@
                                     <tbody>
                                         @foreach ($submenu as $item)
                                             <tr>
-                                                <td> {{ $item['menu']['menu_name'] }}</td>
+                                                <td>@if(isset($item['menu']['menu_name']) && $item['menu']['menu_name'] != '') {{ $item['menu']['menu_name'] }}@endif</td>
                                                 <td>{{ $item->submenu_name }}</td>
                                                 <td>{{ $item->submenu_slug }}</td>
                                                 <td>{{ $item->url }}</td>

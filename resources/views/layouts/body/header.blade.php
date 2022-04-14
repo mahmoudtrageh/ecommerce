@@ -47,11 +47,31 @@
                             <a class="menu-link" href="{{ $menu->url }}">
                                 <div> {{ $menu->menu_name }}</div>
                             </a>
+                            @elseif ($menu->url == 'categories')
+                                 @php
+                                $categories = App\Models\Category::latest()->get();
+                                @endphp
+                               
+                               <a class="menu-link p-0" href="#"> {{ trans('admin/sidebar.all-categories') }}
+                            
+                                <ul class="sub-menu-container">
+                                    @foreach($categories as $category)
+                                        <li class="menu-item">
+                                            <a class="menu-link" href="{{route('shop.view',$category->id)}}">
+                                                <div>{{ $category->category_name }}</div>
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </a>
+                                   
+                               
                             @else 
                             <a class="menu-link" href="{{ URL::to('/') }}/{{ $menu->url }}">
                                 <div> {{ $menu->menu_name }}</div>
                             </a>
                             @endif
+
                             
                             @if ($menu->submenu->count())
                                 <ul class="sub-menu-container">
